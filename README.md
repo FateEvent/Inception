@@ -2,6 +2,12 @@
 
 Useful resources to start:
 
+* <https://www.differencebetween.com/difference-between-primary-partition-and-vs-logical-partition>
+
+For issues that may rise during the installation of Docker on the VM:
+* <https://itsfoss.com/apt-key-deprecated>;
+* <https://askubuntu.com/questions/307/how-can-ppas-be-removed>.
+
 In addition to the official Docker documentation:
 
 * <https://docs.docker.com>;
