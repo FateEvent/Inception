@@ -1,5 +1,7 @@
 # Inception
 
+Debian Buster debian-10.9.0-amd64-xfce-CD-1.iso
+
 Useful resources to start:
 
 * <https://www.differencebetween.com/difference-between-primary-partition-and-vs-logical-partition>
