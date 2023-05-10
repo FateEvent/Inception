@@ -30,6 +30,7 @@ For an explanation of the concepts of "continuous integration" and "continuous d
 Configuration of the VM and installation of Docker Composer:
 * <https://www.youtube.com/watch?v=Mok2J__Ci3Y&t=1s>;
 `sudo apt-get install vim -y`
+
 * <https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-debian-10>;
 
 I found really useful a series of tutorials by Grafikart (in French), "Mettre en place un serveur Web", located at:
