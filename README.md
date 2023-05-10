@@ -30,14 +30,7 @@ For an explanation of the concepts of "continuous integration" and "continuous d
 Configuration of the VM and installation of Docker Composer:
 * <https://www.youtube.com/watch?v=Mok2J__Ci3Y&t=1s>;
 `sudo apt-get install vim -y`
-
 * <https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-debian-10>;
 
-I found really useful a series of tutorials by Grafikart (in French), "Mettre en place un serveur Web", located at:
-* <https://grafikart.fr/formations/serveur-linux>
-
-and in particular the following tutorials:
-* <https://grafikart.fr/tutoriels/nginx-692>
-
-Other sources for installing and configuring Nginx:
-* <https://www.nginx.com/blog/setting-up-nginx>
+For the configuration file of Nginx I followed:
+* <https://www.digitalocean.com/community/tutorials/php-fpm-nginx>

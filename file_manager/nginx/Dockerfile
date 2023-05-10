@@ -1,14 +1,15 @@
-FROM debian:buster
+FROM	debian:buster
 
-RUN	apt-get update && apt-get install -y nginx openssl
+RUN		apt-get update && apt-get install -y nginx openssl
 
 # We use OpenSSL to generate our key and certificate files :
-# srcs: man openssl
-		# https://www.linode.com/docs/guides/create-a-self-signed-tls-certificate/
-		# https://medium.com/@mvuksano/how-to-properly-configure-your-nginx-for-tls-564651438fe0
+# sources:
+#	man openssl
+#	https://www.linode.com/docs/guides/create-a-self-signed-tls-certificate/
+#	https://medium.com/@mvuksano/how-to-properly-configure-your-nginx-for-tls-564651438fe0
 
 RUN		openssl req -new -newkey rsa:4096 -x509 -sha512 -days 365 -nodes  \
-		-subj "/C=FR/ST=Paris/O=42/CN=efrancon.42.fr"  \
+		-subj "/C=FR/ST=Mulhouse/O=42/CN=faventur.42.fr"  \
 		-out /etc/ssl/certs/nginx_certificate.crt  \
 		-keyout /etc/ssl/private/nginx_certificate.key
 
@@ -29,8 +30,8 @@ COPY	./conf/nginx.conf	/etc/nginx/conf.d
 EXPOSE	443
 
 # Forward request and error logs to docker log collector
-RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
-	ln -sf /dev/stderr /var/log/nginx/error.log
+RUN		ln -sf /dev/stdout /var/log/nginx/access.log && \
+		ln -sf /dev/stderr /var/log/nginx/error.log
 
 # Launch Nginx in foreground [option -g : used to set global directives]
-CMD  ["nginx", "-g", "daemon off;"]
+CMD 	["nginx", "-g", "daemon off;"]
