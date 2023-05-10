@@ -1,12 +1,12 @@
 FROM	debian:buster
 
-RUN		apt-get update && apt-get install -y nginx openssl
+RUN		apt-get update && apt-get upgrade -y \
+		&& apt-get install nginx openssl -y
 
 # We use OpenSSL to generate our key and certificate files :
 # sources:
 #	man openssl
-#	https://www.linode.com/docs/guides/create-a-self-signed-tls-certificate/
-#	https://medium.com/@mvuksano/how-to-properly-configure-your-nginx-for-tls-564651438fe0
+#	https://www.linode.com/docs/guides/create-a-self-signed-tls-certificate
 
 RUN		openssl req -new -newkey rsa:4096 -x509 -sha512 -days 365 -nodes  \
 		-subj "/C=FR/ST=Mulhouse/O=42/CN=faventur.42.fr"  \
