@@ -10,6 +10,8 @@ RUN apt-get update \
 && apt-get install nginx -yq \
 && apt-get clean -yq
 
-ADD . /config/
+EXPOSE 443
 
-CMD systemctl start nginx.service
+COPY . /etc/nginx/
+
+CMD nginx -g daemon off
