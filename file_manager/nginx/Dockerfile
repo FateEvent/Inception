@@ -12,6 +12,6 @@ RUN apt-get update \
 
 EXPOSE 443
 
-COPY . /etc/nginx/
+COPY ./conf/nginx.conf /etc/nginx/conf.d
 
-CMD nginx -g daemon off
+CMD ["nginx" "-g" "daemon off"]
