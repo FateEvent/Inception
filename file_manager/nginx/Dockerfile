@@ -1,7 +1,7 @@
 FROM	debian:buster
 
 RUN		apt-get update && apt-get upgrade -y \
-		&& apt-get install nginx openssl -y
+		&& apt-get install openssl wget curl nginx -y
 
 # We use OpenSSL to generate our key and certificate files :
 # sources:
@@ -30,8 +30,8 @@ COPY	./conf/nginx.conf	/etc/nginx/conf.d
 EXPOSE	443
 
 # Forward request and error logs to docker log collector
-RUN		ln -sf /dev/stdout /var/log/nginx/access.log && \
-		ln -sf /dev/stderr /var/log/nginx/error.log
+RUN		ln -sf /dev/stdout /var/log/nginx/access.log \
+		&& ln -sf /dev/stderr /var/log/nginx/error.log
 
 # Launch Nginx in foreground [option -g : used to set global directives]
 CMD 	["nginx", "-g", "daemon off;"]

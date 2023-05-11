@@ -35,4 +35,9 @@ Configuration of the VM and installation of Docker Composer:
 For the configuration file of Nginx I followed:
 * <https://www.digitalocean.com/community/tutorials/php-fpm-nginx>
 
+
 * <https://medium.com/swlh/wordpress-deployment-with-nginx-php-fpm-and-mariadb-using-docker-compose-55f59e5c1a>
+`docker build -t nginx_2 .`
+`docker run -ti -p 8080:443 nginx_2`
+`docker ps`
+`docker stop container_ID`
