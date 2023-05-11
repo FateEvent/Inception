@@ -40,4 +40,7 @@ For the configuration file of Nginx I followed:
 `docker build -t nginx_2 .`
 `docker run -ti -p 8080:443 nginx_2`
 `docker ps`
-`docker stop container_ID`
+`docker stop CONTAINER_ID`
+`docker system prune`
+`docker images`
+`docker image rm REPOSITORY | IMAGE_ID`
