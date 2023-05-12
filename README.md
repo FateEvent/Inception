@@ -1,7 +1,7 @@
 # Inception
 
-Download the image CD for Debian 10 "Debian Buster debian-10.9.0-amd64-xfce-CD-1.iso" from the official site:
-* <https://www.debian.org/releases/buster/debian-installer>.
+Download the image CD for Debian 10 "Debian Buster debian-10.9.0-amd64-xfce-CD-1.iso" (amd64) from the official site:
+* <https://www.debian.org/releases/buster/debian-installer>
 
 Useful resources to start:
 
@@ -28,7 +28,7 @@ For an explanation of the concepts of "continuous integration" and "continuous d
 * <https://www.redhat.com/en/topics/devops/what-is-ci-cd>;
 
 Configuration of the VM and installation of Docker Composer:
-* <https://www.youtube.com/watch?v=Mok2J__Ci3Y&t=1s>;
+* <https://github.com/wpf68/Inception_42/blob/master/Install%20Machine%20Virtuel%20sur%20Mac%20230107.txt>;
 `sudo apt-get install vim -y`
 * <https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-debian-10>;
 
