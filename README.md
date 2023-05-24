@@ -22,7 +22,6 @@ you can consult an interesting course offered by Openclassroom (in French):
 
 
 * <https://stackoverflow.com/questions/16047306/how-is-docker-different-from-a-virtual-machine/16048358#16048358>;
-* <https://github.com/EugenieF/42_inception>;
 
 For an explanation of the concepts of "continuous integration" and "continuous delivery", see:
 * <https://www.redhat.com/en/topics/devops/what-is-ci-cd>;
@@ -35,7 +34,6 @@ Configuration of the VM and installation of Docker Composer:
 For the configuration file of Nginx I followed:
 * <https://www.digitalocean.com/community/tutorials/php-fpm-nginx>
 
-
 * <https://medium.com/swlh/wordpress-deployment-with-nginx-php-fpm-and-mariadb-using-docker-compose-55f59e5c1a>
 `docker build -t nginx_2 .`
 `docker run -ti -p 8080:443 nginx_2`
@@ -44,3 +42,9 @@ For the configuration file of Nginx I followed:
 `docker system prune`
 `docker images`
 `docker image rm REPOSITORY | IMAGE_ID`
+
+A good tutorial on the subject:
+* <https://tuto.grademe.fr/inception>;
+
+For creating a Docker image to run our images into (thanx to Senolem):
+* <https://github.com/senolem/Ubuntu-container/tree/master>.
