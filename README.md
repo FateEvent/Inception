@@ -45,6 +45,3 @@ For the configuration file of Nginx I followed:
 
 A good tutorial on the subject:
 * <https://tuto.grademe.fr/inception>;
-
-For creating a Docker image to run our images into (thanx to Senolem):
-* <https://github.com/senolem/Ubuntu-container/tree/master>.
