@@ -1,13 +1,13 @@
 FROM    debian:buster
 
-RUN	apt-get update && apt-get upgrade -y
-RUN	apt-get install -y wget php7.3 php-fpm php-mysql mariadb-client
+RUN		apt-get update && apt-get upgrade -y
+RUN		apt-get install -y wget php7.3 php-fpm php-mysql mariadb-client
 
-RUN	wget https://fr.wordpress.org/wordpress-6.2.2-fr_FR.tar.gz -P /var/www
-RUN	cd /var/www && tar -xzf wordpress-6.2.2-fr_FR.tar.gz && rm wordpress-6.2.2-fr_FR.tar.gz
+COPY	./www.conf	/etc/php/7.3/fpm/pool.d/www.conf
 
-RUN	chown -R root:root /var/www/wordpress
+RUN		wget https://fr.wordpress.org/wordpress-6.2.2-fr_FR.tar.gz -P /var/www
+RUN		cd /var/www && tar -xzf wordpress-6.2.2-fr_FR.tar.gz && rm wordpress-6.2.2-fr_FR.tar.gz
 
-RUN	apt-get install nano vim -y
+RUN		chown -R root:root /var/www/wordpress
 
-CMD	["yes", "yes"]	
+COPY	
