@@ -6,7 +6,8 @@ RUN			apt-get install -y wget php7.3 php-fpm php-mysql mariadb-client
 RUN			wget https://fr.wordpress.org/wordpress-6.2.2-fr_FR.tar.gz -P /var/www
 RUN			cd /var/www && tar -xzf wordpress-6.2.2-fr_FR.tar.gz && rm wordpress-6.2.2-fr_FR.tar.gz
 
-RUN			chown -R root:root /var/www/wordpress
+# To obtain the rights on our root and main users
+RUN         chmod 755 /var/www/wordpress && chown -R www-data:www-data /var/www/wordpress
 
 COPY		./conf/www.conf	/etc/php/7.3/fpm/pool.d/www.conf
 

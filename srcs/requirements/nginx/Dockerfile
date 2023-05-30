@@ -36,8 +36,5 @@ EXPOSE	443
 RUN		ln -sf /dev/stdout /var/log/nginx/access.log \
 		&& ln -sf /dev/stderr /var/log/nginx/error.log
 
-# To obtain the rights on our root and main users
-RUN		chmod 755 /var/www/html && chown -R www-data:www-data /var/www/html
-
 # Launch Nginx in foreground [option -g : used to set global directives]
 CMD 	["nginx", "-g", "daemon off;"]
