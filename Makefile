@@ -1,7 +1,7 @@
 NAME		=	inception
 SRCS_PATH	=	srcs/
-COMPOSE		=	${SRCS_PATH}/docker-compose.yml
-ENV		=	${SRCS_PATH}/.env
+COMPOSE		=	${SRCS_PATH}docker-compose.yml
+ENV			=	${SRCS_PATH}.ENV
 FLAGS		=	-f ${COMPOSE} -p ${NAME}
 
 all: refresh
@@ -23,6 +23,9 @@ clean: stop
 
 fclean: stop clean
 	docker system prune -f
+
+karcher: stop clean
+	docker system prune -af
 
 re: stop fclean all
 

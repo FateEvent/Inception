@@ -1,20 +1,21 @@
 FROM	debian:buster
 
 RUN		apt-get update && apt-get upgrade -y \
-		&& apt-get install openssl wget curl nginx -y
+		&& apt-get install wget vim curl nginx -y
 
 # We create a folder to store our key and certificate files :
 RUN		mkdir -p /etc/nginx/ssl
+RUN		apt-get install openssl -y
 
 # We use OpenSSL to generate our key and certificate files :
 # sources:
 #	man openssl
 #	https://www.linode.com/docs/guides/create-a-self-signed-tls-certificate
 
-RUN		openssl req -new -newkey rsa:4096 -x509 -sha512 -days 365 -nodes  \
-		-subj "/C=FR/ST=Mulhouse/O=42/CN=faventur.42.fr"  \
-		-out /etc/nginx/ssl/inception.crt  \
-		-keyout /etc/nginx/ssl/inception.key
+RUN		openssl req -new -newkey rsa:4096 -x509 -sha512 -days 365 -nodes \
+		-out /etc/nginx/ssl/inception.crt \
+		-keyout /etc/nginx/ssl/inception.key \
+		-subj "/C=FR/ST=Mulhouse/O=42/CN=faventur.42.fr"
 
 # openssl req -new	: generates a new certificate request
 # -newkey rsa4096	: specifies that we want to generate both a new certificate and a new key with an RSA key of 4096 bits
@@ -26,8 +27,12 @@ RUN		openssl req -new -newkey rsa:4096 -x509 -sha512 -days 365 -nodes  \
 # -out				: specifies the location of the output .crt file
 # -keyout			: specifies the location of the output .key file
 
+RUN		mkdir -p /var/run/nginx
+
 # Import the edited configuration file
-COPY	./conf/nginx.conf	/etc/nginx/conf.d
+COPY	./conf/nginx.conf	/etc/nginx/nginx.conf
+RUN		chmod 755 /var/www/html
+RUN		chown -R www-data:www-data /var/www/html
 
 # Serves only as documentation here
 EXPOSE	443
