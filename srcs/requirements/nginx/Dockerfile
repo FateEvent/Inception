@@ -30,7 +30,7 @@ RUN		openssl req -new -newkey rsa:4096 -x509 -sha512 -days 365 -nodes \
 RUN		mkdir -p /var/run/nginx
 
 # Import the edited configuration file
-COPY	./conf/nginx.conf	/etc/nginx/nginx.conf
+COPY	conf/nginx.conf /etc/nginx/nginx.conf
 RUN		chmod 755 /var/www/html
 RUN		chown -R www-data:www-data /var/www/html
 
