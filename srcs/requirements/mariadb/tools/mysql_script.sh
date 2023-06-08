@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # https://dev.mysql.com/doc/refman/8.0/en/mysql-command-options.html#option_mysql_bind-address
+# https://stackoverflow.com/questions/21944936/error-1045-28000-access-denied-for-user-rootlocalhost-using-password-y/42967789#42967789
 
 service mysql start;
 mysql -e "CREATE DATABASE IF NOT EXISTS \`${SQL_DATABASE}\`;"

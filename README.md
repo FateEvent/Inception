@@ -45,3 +45,4 @@ For the configuration file of Nginx I followed:
 
 A good tutorial on the subject:
 * <https://tuto.grademe.fr/inception>;
+https://github.com/mprigent/Inception
