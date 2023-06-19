@@ -1,7 +1,7 @@
 FROM	debian:buster
 
 RUN		apt-get update && apt-get upgrade -y \
-		&& apt-get install wget vim curl nginx -y
+		&& apt-get install nginx -y
 
 # We create a folder to store our key and certificate files :
 RUN		mkdir -p /etc/nginx/ssl
