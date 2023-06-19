@@ -4,13 +4,12 @@ sleep 10
 # https://linuxize.com/post/bash-check-if-file-exists
 FILE=/var/www/wordpress/wp-config.php
 if [ ! -e "$FILE" ]; then
-	if [ ! -e /var/www/wordpress/wp-config.php ]; then
-    wp config create	--allow-root --dbname=$SQL_DATABASE --dbuser=$SQL_USER --dbpass=$SQL_PASSWORD \
-    					--dbhost=mariadb:3306 --path='/var/www/wordpress'
+	wp config create	--allow-root --dbname=$SQL_DATABASE --dbuser=$SQL_USER --dbpass=$SQL_PASSWORD \
+						--dbhost=mariadb:3306 --path='/var/www/wordpress'
 
-sleep 10
-wp core install     --url=$DOMAIN_NAME --title=$SITE_TITLE --admin_user=$ADMIN_USER --admin_password=$ADMIN_PASSWORD --admin_email=$ADMIN_EMAIL --allow-root --path='/var/www/wordpress'
-wp user create      --allow-root --role=author $USER1_LOGIN $USER1_MAIL --user_pass=$USER1_PASS --path='/var/www/wordpress' >> /log.txt
+	sleep 10
+	wp core install     --url=$DOMAIN_NAME --title=$SITE_TITLE --admin_user=$ADMIN_USER --admin_password=$ADMIN_PASSWORD --admin_email=$ADMIN_EMAIL --allow-root --path='/var/www/wordpress'
+	wp user create      --allow-root --role=author $USER1_LOGIN $USER1_MAIL --user_pass=$USER1_PASS --path='/var/www/wordpress' >> /log.txt
 fi
 
 # echo "define( 'CONCATENATE_SCRIPTS', false );" >> /var/www/wordpress/wp-config.php
@@ -23,11 +22,9 @@ fi
 # echo "define( 'WP_DEBUG_DISPLAY', false);" >> /var/www/wordpress/wp-config.php
 # echo "define('WP_ALLOW_REPAIR', true);" >> /var/www/wordpress/wp-config.php
 
-	
-
 # if /run/php folder doesn't exist, create it
 # https://stackoverflow.com/questions/43654656/dockerfile-if-else-condition-with-external-arguments
 if [ ! -d /run/php ]; then
-    mkdir ./run/php
+	mkdir ./run/php
 fi
 /usr/sbin/php-fpm7.3 -F
