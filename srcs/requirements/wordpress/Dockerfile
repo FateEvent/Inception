@@ -1,21 +1,43 @@
-FROM		debian:buster
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Dockerfile                                         :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: faventur <faventur@student.42Mulhouse.fr>  +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/05/24 18:54:40 by faventur          #+#    #+#              #
+#    Updated: 2023/06/01 10:50:24 by faventur         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-RUN			apt-get update && apt-get upgrade -y
-RUN			apt-get -y install wget
+FROM debian:buster
 
-RUN         apt-get -y install php7.3 php-fpm php-mysql mariadb-client
+RUN apt-get update -y 
+RUN apt-get upgrade -y 
+RUN apt-get -y install wget
+RUN apt-get install -y php7.3\
+	php-fpm\
+	php-mysql\
+	mariadb-client \
+	sudo
 
-RUN			wget https://fr.wordpress.org/wordpress-6.2.2-fr_FR.tar.gz -P /var/www
-RUN			cd /var/www && tar -xzf wordpress-6.2.2-fr_FR.tar.gz && rm wordpress-6.2.2-fr_FR.tar.gz
+WORKDIR /var/www/wordpress
 
-# To obtain the rights on our root and main users
-RUN			chown -R root:root /var/www/wordpress
+# give the right to the user to write in the directory
+RUN	chown -R www-data:www-data /var/www/wordpress
 
-RUN			wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-RUN			chmod +x wp-cli.phar
-RUN			mv wp-cli.phar /usr/local/bin/wp
+# configuration de wordpress
+RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 
-COPY		conf/www.conf	/etc/php/7.3/fpm/pool.d/www.conf
-COPY		conf/auto_config.sh auto_config.sh
 
-ENTRYPOINT	["bash", "auto_config.sh"]
+# copy wp-cli to /usr/local/bin/wp and give the right to the user to write in the directory
+RUN chmod +x wp-cli.phar
+RUN mv wp-cli.phar /usr/local/bin/wp
+
+#copy auto_config
+COPY	./conf/php.conf			/etc/php/7.3/fpm/pool.d/www.conf
+COPY	conf/wp_config.sh wp_config.sh
+RUN		chmod 755 wp_config.sh
+
+# RUN mv /var/www/wordpress/wp-config-sample.php /var/www/wordpress/wp-config.php
+ENTRYPOINT ["bash", "wp_config.sh"]

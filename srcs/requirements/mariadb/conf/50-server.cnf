@@ -1,13 +1,10 @@
+[mysqld]
+user = mysql 
+socket = /run/mysqld/mysqld.sock
+datadir = /var/lib/mysql
+bind_address=*
+port = 3306
+
+
 [mysql]
 default-character-set=utf8
-
-[mysqld]
-datadir = /var/lib/mysql # dossier qui stockera notre base de données
-socket  = /run/mysqld/mysqld.sock # endroit où MySQL peut trouver la socket pour communiquer avec
-bind_address=* # toutes les IP du réseau peuvent se connecter
-port = 3306 # port utilisé pour communiquer
-user = mysql # utilisateur
-
-# To configure the config file:
-#	https://www.malekal.com/installer-mysql-mariadb-sur-debian-10
-#	https://mariadb.com/kb/en/configuring-mariadb-with-option-files
