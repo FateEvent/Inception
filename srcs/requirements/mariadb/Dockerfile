@@ -1,7 +1,7 @@
 FROM		debian:buster
 
 RUN			apt-get update && apt-get upgrade -y
-RUN			apt-get install -y mariadb-server
+RUN			apt-get install -y mariadb-server-10.3
 
 COPY		conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 #RUN			chmod 755 /etc/mysql/mariadb.conf.d/50-server.cnf

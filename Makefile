@@ -16,16 +16,20 @@ stop:
 	@docker-compose ${FLAGS} stop
 
 refresh:
+	@mkdir -p ~/data
+	@mkdir -p ~/data/wordpress
+	@mkdir -p ~/data/mariadb
 	@docker-compose $(FLAGS) up -d --build
 
 clean: stop
-	sudo rm -rf ~/data/www/* && sudo rm -rf ~/data/mariadb/*
+	@sudo rm -rf ~/data/wordpress
+	@sudo rm -rf ~/data/mariadb
 
 fclean: stop clean
-	docker system prune -f
+	@docker system prune -f
 
 karcher: stop clean
-	docker system prune -af
+	@docker system prune -af
 
 re: stop fclean all
 
