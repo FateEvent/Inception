@@ -4,7 +4,7 @@ sleep 10
 # https://linuxize.com/post/bash-check-if-file-exists
 FILE=/var/www/wordpress/wp-config.php
 if [ ! -e "$FILE" ]; then
-	wp config create	--allow-root --dbname=$SQL_DBNAME --dbuser=$SQL_USER --dbpass=$SQL_PASSWORD \
+	wp config create	--allow-root --dbname=$SQL_DATABASE --dbuser=$SQL_USER --dbpass=$SQL_PASSWORD \
 						--dbhost=mariadb:3306 --path='/var/www/wordpress'
 
 	sleep 10
