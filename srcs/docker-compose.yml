@@ -1,5 +1,13 @@
 version: "3" 
 services:
+ redis:
+  container_name: redis
+  networks:
+   - inception
+  env_file: .env
+  restart: unless-stopped
+  expose:
+   - "6379"
  mariadb:
   container_name: mariadb
   networks:
@@ -34,6 +42,7 @@ services:
   build: requirements/wordpress
   depends_on:
    - mariadb
+   - redis
   restart: on-failure
   expose: 
    - "9000"

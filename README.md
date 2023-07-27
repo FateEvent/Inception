@@ -44,5 +44,4 @@ For the configuration file of Nginx I followed:
 `docker image rm REPOSITORY | IMAGE_ID`
 
 A good tutorial on the subject:
-* <https://tuto.grademe.fr/inception>;
-https://github.com/mprigent/Inception
+* <https://tuto.grademe.fr/inception>
