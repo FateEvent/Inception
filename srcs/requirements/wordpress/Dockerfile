@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Dockerfile                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: faventur <faventur@student.42mulhouse.fr>  +#+  +:+       +#+         #
+#    By: faventur <faventur@student.42mulhouse.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/20 15:57:52 by fab               #+#    #+#              #
-#    Updated: 2023/06/20 16:31:57 by faventur         ###   ########.fr        #
+#    Updated: 2023/07/27 11:09:04 by faventur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,9 @@ RUN			chmod +x wp-cli.phar
 RUN			mv wp-cli.phar /usr/local/bin/wp
 
 COPY		conf/www.conf	/etc/php/7.3/fpm/pool.d/www.conf
-COPY		conf/auto_config.sh auto_config.sh
+# COPY		./wp-config.php	/wp-config.php
+COPY		tools/auto_config.sh auto_config.sh
 RUN		    chmod 755 auto_config.sh
 
 ENTRYPOINT	["bash", "auto_config.sh"]
+EXPOSE		9000
