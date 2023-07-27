@@ -1,4 +1,6 @@
 #!/bin/sh
 
 redis-server /etc/redis/redis.conf
-redis-cli PING
+
+# https://linuxhint.com/redis-acl
+ACL SETUSER ${REDIS_LOGIN} ON >${REDIS_PASSWORD}

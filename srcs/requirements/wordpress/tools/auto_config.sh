@@ -26,6 +26,10 @@ if [ ! -e /var/www/wordpress/wp-config.php ]; then
 	
 	sudo -u www-data wp plugin install wp-redis --activate
 	sudo -u www-data wp redis enable
+    sudo -u www-data wp config set WP_REDIS_HOST "127.0.0.1"
+    sudo -u www-data wp config set WP_REDIS_PORT "6379"
+    sudo -u www-data wp config set WP_REDIS_DATABASE "15"
+    sudo -u www-data wp config set WP_REDIS_PASSWORD ${REDIS_PASSWORD}
 fi
 
 # if /run/php folder does not exist, create it
