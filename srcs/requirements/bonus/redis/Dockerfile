@@ -6,7 +6,7 @@
 #    By: faventur <faventur@student.42mulhouse.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/20 16:02:57 by faventur          #+#    #+#              #
-#    Updated: 2023/07/27 10:26:07 by faventur         ###   ########.fr        #
+#    Updated: 2023/07/28 09:24:21 by faventur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,5 +27,6 @@ RUN			chmod 755 /etc/redis/redis.conf
 COPY		tools/redis_script.sh redis_script.sh
 RUN			chmod 755 redis_script.sh
 
-ENTRYPOINT	["./redis_script.sh"]
-EXPOSE		6377
+#ENTRYPOINT	["./redis_script.sh"]
+CMD			["redis-server"]
+EXPOSE		6379
