@@ -6,7 +6,7 @@
 #    By: faventur <faventur@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/24 18:54:40 by faventur          #+#    #+#              #
-#    Updated: 2023/08/01 12:35:23 by faventur         ###   ########.fr        #
+#    Updated: 2023/08/01 12:54:12 by faventur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,9 @@ RUN	apt-get install -y php7.3 \
 	php-fpm \
 	php-mysql \
 	mariadb-client \
-	sudo \
-	sendmail
+	sudo
+
+# RUN	apt-get install -y sendmail
 
 WORKDIR /var/www/wordpress
 

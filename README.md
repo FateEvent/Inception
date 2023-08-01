@@ -46,3 +46,7 @@ For the configuration file of Nginx I followed:
 A good tutorial on the subject:
 * <https://tuto.grademe.fr/inception>;
 https://github.com/mprigent/Inception
+
+To connect to the Wordpress site as admin:
+`https://login.42.fr/wp-login.php`
+* <https://www.ipage.com/help/article/how-to-access-your-wordpress-dashboard>

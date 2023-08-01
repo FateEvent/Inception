@@ -33,8 +33,11 @@ if [ ! -e /var/www/wordpress/wp-config.php ]; then
 										--user_pass=$USER1_PASS \
 										--path='/var/www/wordpress' >> /log.txt
 	
-	sudo -u www-data wp theme install twentyseventeen --activate --path='/var/www/wordpress'
-	# sudo -u www-data wp option update comment_moderation 0 --path='/var/www/wordpress'
+	# download and install a theme
+	# sudo -u www-data wp theme install twentyseventeen --activate --path='/var/www/wordpress'
+
+	# configure comments as automatically approved
+	# sudo -u www-data wp option update comment_moderation 0
 fi
 
 # if /run/php does not exist, create it
