@@ -4,7 +4,6 @@ Download the image CD for Debian 10 "Debian Buster debian-10.9.0-amd64-xfce-CD-1
 * <https://www.debian.org/releases/buster/debian-installer>
 
 Useful resources to start:
-
 * <https://www.differencebetween.com/difference-between-primary-partition-and-vs-logical-partition>
 
 For issues that may rise during the installation of Docker on the VM:
@@ -12,7 +11,6 @@ For issues that may rise during the installation of Docker on the VM:
 * <https://askubuntu.com/questions/307/how-can-ppas-be-removed>.
 
 In addition to the official Docker documentation:
-
 * <https://docs.docker.com>;
 
 you can consult an interesting course offered by Openclassroom (in French):
@@ -42,6 +40,7 @@ For the configuration file of Nginx I followed:
 `docker system prune`
 `docker images`
 `docker image rm REPOSITORY | IMAGE_ID`
+`docker images rmi`
 
 A good tutorial on the subject:
 * <https://tuto.grademe.fr/inception>;
@@ -49,4 +48,16 @@ https://github.com/mprigent/Inception
 
 To connect to the Wordpress site as admin:
 `https://login.42.fr/wp-login.php`
-* <https://www.ipage.com/help/article/how-to-access-your-wordpress-dashboard>
+* <https://wordpress.com/support/dashboard>
+
+Here is the official documentation of Nginx:
+* <https://nginx.org/en/docs>;
+
+MariaDB, MySQL and the MySQL command line client:
+* <https://dev.mysql.com/doc>;
+* <https://mariadb.org/documentation>;
+* <https://dev.mysql.com/doc/refman/8.0/en/programs-client.html>;
+
+WordPress and the WordPress cli:
+* <https://learn.wordpress.org>;
+* <https://developer.wordpress.org/cli/commands>.
