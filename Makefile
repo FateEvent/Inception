@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Dockerfile                                         :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: faventur <faventur@student.42Mulhouse.fr>  +#+  +:+       +#+         #
+#    By: faventur <faventur@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/24 18:54:40 by faventur          #+#    #+#              #
-#    Updated: 2023/06/01 10:50:24 by faventur         ###   ########.fr        #
+#    Updated: 2023/08/01 11:29:53 by faventur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,9 @@ FLAGS = -f $(COMPOSE) -p $(NAME)
 RM = rm -rf
 
 all:
-	sudo mkdir -p /home/${USER}/data
-	sudo mkdir -p /home/${USER}/data/mariadb
-	sudo mkdir -p /home/${USER}/data/wordpress
+	@sudo mkdir -p /home/${USER}/data
+	@sudo mkdir -p /home/${USER}/data/mariadb
+	@sudo mkdir -p /home/${USER}/data/wordpress
 	@docker-compose $(FLAGS) up -d --build
 
 build:
@@ -35,9 +35,9 @@ clean: stop
 	@docker-compose ${FLAGS} down -v
 
 fclean: stop clean
-	sudo rm -rf /home/${USER}/data/wordpress/*
-	sudo rm -rf /home/${USER}/data/mariadb/*
-	docker system prune -af
+	@sudo rm -rf /home/${USER}/data/wordpress/*
+	@sudo rm -rf /home/${USER}/data/mariadb/*
+	@docker system prune -af
 
 re: stop fclean all
 
