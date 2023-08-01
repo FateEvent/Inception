@@ -6,7 +6,7 @@
 #    By: faventur <faventur@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/24 18:54:40 by faventur          #+#    #+#              #
-#    Updated: 2023/08/01 11:56:08 by faventur         ###   ########.fr        #
+#    Updated: 2023/08/01 12:35:23 by faventur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,12 +15,12 @@ FROM debian:buster
 RUN	apt-get update -y 
 RUN	apt-get upgrade -y 
 RUN	apt-get -y install wget
-RUN	apt-get install -y php7.3\
-	php-fpm\
-	php-mysql\
+RUN	apt-get install -y php7.3 \
+	php-fpm \
+	php-mysql \
 	mariadb-client \
 	sudo \
-    sendmail
+	sendmail
 
 WORKDIR /var/www/wordpress
 
@@ -34,10 +34,10 @@ RUN	wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.ph
 RUN	chmod +x wp-cli.phar
 RUN	mv wp-cli.phar /usr/local/bin/wp
 
-# copy auto_config
+# copy auto-configuration script
 COPY	./conf/php.conf	/etc/php/7.3/fpm/pool.d/www.conf
 COPY	conf/wp_config.sh	wp_config.sh
 RUN		chmod 755 wp_config.sh
 
-# RUN	mv /var/www/wordpress/wp-config-sample.php /var/www/wordpress/wp-config.php
 ENTRYPOINT ["bash", "wp_config.sh"]
+EXPOSE	9000

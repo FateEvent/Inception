@@ -6,7 +6,7 @@
 #    By: faventur <faventur@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/24 18:54:40 by faventur          #+#    #+#              #
-#    Updated: 2023/08/01 12:02:36 by faventur         ###   ########.fr        #
+#    Updated: 2023/08/01 12:13:18 by faventur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,5 +22,4 @@ COPY		conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 COPY		tools/mysql_script.sh mysql_script.sh
 RUN			chmod 755 mysql_script.sh
 ENTRYPOINT	["./mysql_script.sh"]
-#ENTRYPOINT	["tail", "-f"]
 EXPOSE		3306
